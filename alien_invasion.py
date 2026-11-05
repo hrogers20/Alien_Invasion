@@ -6,6 +6,7 @@ from bullet import Bullet
 
 if __name__ == '__main__':
     pygame.init()
+    laser_sound = pygame.mixer.Sound("Assets/sound/laser.mp3")
     screen = pygame.display.set_mode((1200, 800))
     pygame.display.set_caption("Alien Invasion")
     bg_color = (230, 230, 230)
@@ -39,6 +40,8 @@ if __name__ == '__main__':
                     ship.moving_left = True 
                 elif event.key == pygame.K_SPACE:
                     bullets.add(Bullet(ship, screen))
+                    laser_sound.play()
+
 
 
 
