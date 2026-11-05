@@ -5,11 +5,12 @@ import pygame
 class Ship:
     def __init__(self, screen):
         self.screen = screen
+        self.image = pygame.image.load("Assets/images/ship.png").convert_alpha()
+        self.image = pygame.transform.scale(self.image, (60, 60))
         self.moving_right = False
         self.moving_left = False
 
-
-        self.rect = pygame.Rect(0, 0, 60, 40)
+        self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen.get_rect().midbottom
 
 
@@ -23,6 +24,7 @@ class Ship:
 
 
 
-    
+      
     def draw_ship(self):
-        pygame.draw.rect(self.screen, (0, 100, 255), self.rect)
+        self.screen.blit(self.image, self.rect)
+
